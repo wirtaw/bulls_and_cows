@@ -18,20 +18,28 @@ class InputName extends Component {
     handleOptionsInputName(e) {
         let visitor_name = document.getElementById('title-nav');
         let game_Form = document.getElementById('gameForm');
+        let game_Table = document.getElementById('gameTable');
         let title = this.state.value;
         if ('undefined' !== typeof visitor_name) {
             this.setState({name:e.target.value});
             let visitorDOM = ReactDOM.findDOMNode(visitor_name);
             let gameFormDOM = ReactDOM.findDOMNode(game_Form);
+            let gameTableDOM = ReactDOM.findDOMNode(game_Table);
             if ('' === e.target.value) {
                 title = title.replace('{{name}}', '');
                 if ('undefined' !== typeof gameFormDOM) {
                     gameFormDOM.style = 'display:none;';
                 }
+                if ('undefined' !== typeof gameTableDOM) {
+                    gameTableDOM.style = 'display:none;';
+                }
             } else {
                 title = title.replace('{{name}}', e.target.value);
                 if ('undefined' !== typeof gameFormDOM) {
                     gameFormDOM.style = 'display:block;';
+                }
+                if ('undefined' !== typeof gameTableDOM) {
+                    gameTableDOM.style = 'display:block;';
                 }
             }
             visitorDOM.innerHTML = title;

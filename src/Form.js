@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 import './Form.css';
 import InputNumber from './InputNumber';
-import Button from './Button';
 
 class Form extends Component {
     render() {
@@ -12,7 +11,6 @@ class Form extends Component {
             <div id="gameForm">
                 <form>
                     <InputNumber/>
-                    <Button/>
                 </form>
             </div>
         );
