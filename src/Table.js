@@ -3,9 +3,14 @@
  */
 import React, { Component } from 'react';
 import './Table.css';
+import Row from './Row';
 
 class Table extends Component {
+
     render() {
+        const stat = this.props.stats.map(function(stat) {
+            return (<Row stat={stat} key={stat.id}/>)
+        });
         return (
             <div id="gameTable">
                 <table>
@@ -17,7 +22,9 @@ class Table extends Component {
                             <th className="tablePoints">Points</th>
                         </tr>
                     </thead>
-                    <tbody><tr><td></td><td></td><td></td><td></td></tr></tbody>
+                    <tbody id="bodyTable">
+                    {stat}
+                    </tbody>
                 </table>
             </div>
         );
