@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
 import FormName from './FormName';
 import Form from './Form';
 import Table from './Table';
@@ -37,12 +36,12 @@ class App extends Component {
         let visitorNumber = document.getElementById('visitorNumber');
         let button = document.getElementById('button-click');
         let value = null;
-        if (visitorNumber) {
+        if ('undefined' !== typeof visitorNumber) {
             let visitorDOM = ReactDOM.findDOMNode(visitorNumber);
             value = visitorDOM.value;
         }
 
-        if (p > 0 && null !== value) {
+        if (p > 0 && (null !== value || '' !== value)) {
             counter += 1;
             p -= 10*counter;
             let id = counter+1;
@@ -92,38 +91,43 @@ class App extends Component {
     };
   render() {
     return (
-      <div className="App">
-            <div className="App-header">
-
-                <h2 id="title-nav">Welcome to "Bulls and cows" game!</h2>
+      <div className="container">
+            <div className="page-header">
+                <h1 id="title-nav">Welcome to "Bulls and cows" game!</h1>
             </div>
-            <div className="App-intro">
-                <div className="row2">
-                    <div className="column">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
                         <FormName />
                     </div>
                 </div>
-                <br className="clrfix"/>
+
                 <div className="row">
-                    <div className="column">
+                    <div className="col-md-3 col-sm-3">
                         <Form />
                     </div>
-                    <div className="column">
-                        <button type="button" id="button-click" onClick={this.handleAddEvent}>Input</button>
+                    <div className="col-md-9 col-sm-9">
+                        <button type="button" id="button-click" onClick={this.handleAddEvent}
+                                className="btn btn-default btn-sm"><span className="glyphicon glyphicon-fire"></span> Spell</button>
                     </div>
                 </div>
-                <br className="clrfix"/>
-                <div className="row2">
-                    <div className="column">
+                <div className="row">
+                    <div className="col-md-12">
                         <Table onStatTableUpdate={this.handleStatTable} onRowAdd={this.handleAddEvent} stats={this.state.stats}/>
                     </div>
                 </div>
-                <br className="clrfix"/>
+
             </div>
-            <div className="App-source">
-                Source code: <br/>
-                <a href="https://github.com/wirtaw/bulls_and_cows">Github</a> or <a href="https://bitbucket.org/wirtaw/react_bulls_and_cows">Bitbucket</a><br/>
-                <a href="./../index.html"> main</a>
+            <div id="footer">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12 col-md-12 col-sm-12 text-center">
+                            Source code: <br/>
+                            <a href="https://github.com/wirtaw/bulls_and_cows">Github</a> or <a href="https://bitbucket.org/wirtaw/react_bulls_and_cows">Bitbucket</a><br/>
+                            <a href="./../index.html"> main</a>
+                        </div>
+                    </div>
+                </div>
             </div>
       </div>
     );

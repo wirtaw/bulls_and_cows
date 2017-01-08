@@ -2,7 +2,6 @@
  * Created by wirtaw on 08.12.16.
  */
 import React, { Component } from 'react';
-import './Table.css';
 import Row from './Row';
 
 class Table extends Component {
@@ -12,8 +11,8 @@ class Table extends Component {
             return (<Row stat={stat} key={stat.id}/>)
         });
         return (
-            <div id="gameTable">
-                <table>
+            <div id="gameTable" className="table-responsive">
+                <table className="table">
                     <thead>
                         <tr>
                             <th className="tableNr">Nr</th>

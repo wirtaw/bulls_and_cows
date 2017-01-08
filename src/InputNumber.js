@@ -36,7 +36,8 @@ class InputNumber extends Component {
         return (
             <div className="inputNumber">
                 <label htmlFor="visitorNumber">Spell number</label>
-                <input type="text" name="visitorNumber" id="visitorNumber" onChange={this.handleOptionsInputNumber} maxLength="4"/>
+                <input type="text" name="visitorNumber" id="visitorNumber"
+                       onChange={this.handleOptionsInputNumber} maxLength="4"/>
             </div>
         );
     }
